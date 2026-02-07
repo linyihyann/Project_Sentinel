@@ -1,30 +1,24 @@
-# 檔案位置: test/CMakeLists.txt
+cmake_minimum_required(VERSION 3.12)
 
-cmake_minimum_required(VERSION 3.13)
-project(Sentinel_Unit_Tests C)
+# 專案名稱
+project(UnitTests C)
 
+# 設定 C 標準
 set(CMAKE_C_STANDARD 11)
 
-# 1. 開啟測試巨集 (讓代碼知道現在是測試模式)
-add_definitions(-DUNIT_TESTING)
-
-# 2. 包含路徑
-include_directories(
-    unity
-    ../src/app
-    ../src/hal
-)
-
-# 3. 定義來源檔案
-# 這裡我們只抓 "純邏輯" 檔案 (sentinel_core.c) 與 測試腳本
-set(SOURCE_FILES
+# 【關鍵修正 1】將 Unity 和 待測程式碼 (sentinel_core.c) 加入編譯列表
+add_executable(run_tests
     test_sentinel.c
-    unity/unity.c
-    ../src/app/sentinel_core.c
+    ../lib/unity/src/unity.c
+    ../src/app/sentinel_core.c   # <--- 之前就是少了這一行！
 )
 
-# 4. 產生執行檔 (這是跑在 macOS 上的)
-add_executable(run_tests ${SOURCE_FILES})
+# 【關鍵修正 2】設定標頭檔 (.h) 的搜尋路徑
+target_include_directories(run_tests PRIVATE
+    ../lib/unity/src
+    ../src/app                   # 讓編譯器找得到 sentinel_core.h
+)
 
-# 5. 連結數學庫 (如果演算法有用到 math.h)
-target_link_libraries(run_tests m)
+# 啟用測試功能
+enable_testing()
+add_test(NAME SentinelCoreTest COMMAND run_tests)
