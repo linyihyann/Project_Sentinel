@@ -1,0 +1,150 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // ==================== Docker Build Tasks ====================
+        {
+            "label": "Build (Docker)",
+            "type": "shell",
+            "command": "./build.sh",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": false
+            },
+            "problemMatcher": [
+                {
+                    "owner": "cpp",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}"
+                    ],
+                    "pattern": {
+                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                }
+            ]
+        },
+        {
+            "label": "Clean Build (Docker)",
+            "type": "shell",
+            "command": "./build.sh",
+            "args": [
+                "--clean"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Rebuild (Docker - Reconfigure)",
+            "type": "shell",
+            "command": "./build.sh",
+            "args": [
+                "--reconfigure"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Verbose (Docker)",
+            "type": "shell",
+            "command": "./build.sh",
+            "args": [
+                "--verbose"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        // ==================== Flash & Run Tasks ====================
+        {
+            "label": "Run Project (picotool)",
+            "type": "process",
+            "command": "${env:HOME}/.pico-sdk/picotool/2.2.0-a4/picotool/picotool",
+            "args": [
+                "load",
+                "${workspaceFolder}/build/project_sentinel.uf2",
+                "-fx"
+            ],
+            // 讓它自動先跑編譯，確保燒錄的是最新版
+            "dependsOn": "Build (Docker)",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash (OpenOCD)",
+            "type": "process",
+            "command": "${userHome}/.pico-sdk/openocd/0.12.0+dev/openocd",
+            "args": [
+                "-s",
+                "${userHome}/.pico-sdk/openocd/0.12.0+dev/scripts",
+                "-f",
+                "interface/cmsis-dap.cfg",
+                "-f",
+                "target/rp2350.cfg",
+                "-c",
+                "adapter speed 5000; program \"${workspaceFolder}/build/project_sentinel.elf\" verify reset exit"
+            ],
+            "dependsOn": "Build (Docker)",
+            "problemMatcher": []
+        },
+        {
+            "label": "Rescue Reset",
+            "type": "process",
+            "command": "${userHome}/.pico-sdk/openocd/0.12.0+dev/openocd",
+            "args": [
+                "-s",
+                "${userHome}/.pico-sdk/openocd/0.12.0+dev/scripts",
+                "-f",
+                "interface/cmsis-dap.cfg",
+                "-f",
+                "target/rp2350-rescue.cfg",
+                "-c",
+                "adapter speed 5000; reset halt; exit"
+            ],
+            "problemMatcher": []
+        },
+        // ==================== Maintenance Tasks ====================
+        // 修正：這裡的 Image 名稱改為與 build.sh 一致 (project_sentinel_builder)
+        {
+            "label": "Rebuild Docker Image",
+            "type": "shell",
+            "command": "docker rmi project_sentinel_builder 2>/dev/null || true && docker build -t project_sentinel_builder .",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        // 修正：這裡也同步更新名稱
+        {
+            "label": "Clean All (Build + Docker)",
+            "type": "shell",
+            "command": "rm -rf build && docker rmi project_sentinel_builder 2>/dev/null || true",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

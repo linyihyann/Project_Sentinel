@@ -1,0 +1,69 @@
+{
+    // ==================== CMake 設定 (禁用自動配置，因為使用 Docker) ====================
+    "cmake.showSystemKits": false,
+    "cmake.options.statusBarVisibility": "hidden",
+    "cmake.options.advanced": {
+        "build": {
+            "statusBarVisibility": "hidden"
+        },
+        "launch": {
+            "statusBarVisibility": "hidden"
+        },
+        "debug": {
+            "statusBarVisibility": "hidden"
+        }
+    },
+    "cmake.configureOnEdit": false,
+    "cmake.automaticReconfigure": false,
+    "cmake.configureOnOpen": false,
+    "cmake.autoSelectActiveFolder": false, // 新增：防止自動選擇資料夾
+    "cmake.generator": "Ninja",
+    // 註釋：本地 CMake 路徑 (Docker 建置時不使用)
+    // "cmake.cmakePath": "${userHome}/.pico-sdk/cmake/v3.31.5/bin/cmake",
+    // ==================== Raspberry Pi Pico 擴展設定 ====================
+    "raspberry-pi-pico.cmakeAutoConfigure": false, // 改為 false：禁用自動配置
+    "raspberry-pi-pico.useCmakeTools": false,
+    // 註釋：本地工具路徑 (Docker 建置時不使用，但 picotool 燒錄時需要)
+    "raspberry-pi-pico.cmakePath": "${HOME}/.pico-sdk/cmake/v3.31.5/bin/cmake",
+    "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
+    // ==================== C/C++ 擴展設定 ====================
+    "C_Cpp.debugShortcut": false,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    // 指向 Docker 生成的 compile_commands.json (提供 IntelliSense)
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    // ==================== 終端機環境變數 (用於 picotool 燒錄) ====================
+    "terminal.integrated.env.windows": {
+        "PICO_SDK_PATH": "${env:USERPROFILE}/.pico-sdk/sdk/2.2.0",
+        "PICO_TOOLCHAIN_PATH": "${env:USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1",
+        "Path": "${env:USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1/bin;${env:USERPROFILE}/.pico-sdk/picotool/2.2.0-a4/picotool;${env:USERPROFILE}/.pico-sdk/cmake/v3.31.5/bin;${env:USERPROFILE}/.pico-sdk/ninja/v1.12.1;${env:PATH}"
+    },
+    "terminal.integrated.env.osx": {
+        "PICO_SDK_PATH": "${env:HOME}/.pico-sdk/sdk/2.2.0",
+        "PICO_TOOLCHAIN_PATH": "${env:HOME}/.pico-sdk/toolchain/14_2_Rel1",
+        "PATH": "${env:HOME}/.pico-sdk/toolchain/14_2_Rel1/bin:${env:HOME}/.pico-sdk/picotool/2.2.0-a4/picotool:${env:HOME}/.pico-sdk/cmake/v3.31.5/bin:${env:HOME}/.pico-sdk/ninja/v1.12.1:${env:PATH}"
+    },
+    "terminal.integrated.env.linux": {
+        "PICO_SDK_PATH": "${env:HOME}/.pico-sdk/sdk/2.2.0",
+        "PICO_TOOLCHAIN_PATH": "${env:HOME}/.pico-sdk/toolchain/14_2_Rel1",
+        "PATH": "${env:HOME}/.pico-sdk/toolchain/14_2_Rel1/bin:${env:HOME}/.pico-sdk/picotool/2.2.0-a4/picotool:${env:HOME}/.pico-sdk/cmake/v3.31.5/bin:${env:HOME}/.pico-sdk/ninja/v1.12.1:${env:PATH}"
+    },
+    // ==================== 編輯器設定 ====================
+    "editor.formatOnSave": true,
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    // ==================== 檔案排除設定 (Docker 建置) ====================
+    "files.exclude": {
+        "**/build": true // 隱藏 build 目錄
+    },
+    "search.exclude": {
+        "**/build": true // 搜尋時排除 build 目錄
+    },
+    "files.watcherExclude": {
+        "**/build/**": true // 不監視 build 目錄的變更
+    },
+    // ==================== 檔案關聯 ====================
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c"
+    }
+}
