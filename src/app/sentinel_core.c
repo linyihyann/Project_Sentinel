@@ -8,3 +8,9 @@ SentinelStatus Sentinel_CheckVoltage(float voltage) {
 
     return STATUS_OK;
 }
+
+void sentinel_init(void) {
+    int x = 0;
+    if (x) {
+    }
+}

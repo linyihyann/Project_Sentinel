@@ -11,8 +11,12 @@ jobs:
   quality-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+     # 修改後：(加入 submodules 設定)
+      - name: Checkout Repo with Submodules
         uses: actions/checkout@v3
+        with:
+          submodules: recursive  # 關鍵！遞迴下載所有子模組 (含 SDK 驅動)
+          fetch-depth: 0         # 建議：下載完整歷史，避免某些版本判斷錯誤
 
       - name: Install Tools
         run: |
