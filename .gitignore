@@ -1,2 +1,12 @@
-build
-!.vscode/*
+# 編譯產出 (Build Artifacts)
+build/
+build_test/
+*.uf2
+*.elf
+*.hex
+*.bin
+*.map
+
+# 編輯器暫存檔
+.vscode/
+.DS_Store
