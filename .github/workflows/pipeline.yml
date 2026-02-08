@@ -1,0 +1,63 @@
+name: Sentinel CI Pipeline
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # === Job 1: 品質檢查與單元測試 (Host Machine) ===
+  quality-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake gcc cppcheck
+
+      - name: 🔍 Static Analysis (Cppcheck)
+        run: |
+          # 這裡使用了我們剛剛優化過的指令
+          cppcheck --enable=warning,performance,portability \
+            --suppress=missingIncludeSystem \
+            --suppress=unusedFunction \
+            -I src/app -I src/hal \
+            --error-exitcode=1 src/
+
+      - name: 🧪 Build & Run Unit Tests
+        run: |
+          chmod +x build.sh
+          ./build.sh -t
+
+  # === Job 2: 韌體編譯測試 (Target Machine) ===
+  build-firmware:
+    needs: quality-and-test # 測試過了才准編譯韌體
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install ARM Toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential cmake
+
+      - name: 📥 Clone Pico SDK
+        run: |
+          git clone -b master https://github.com/raspberrypi/pico-sdk.git
+          echo "PICO_SDK_PATH=$PWD/pico-sdk" >> $GITHUB_ENV
+
+      - name: 🔨 Build Firmware (Dry Run)
+        run: |
+          # 模擬真實編譯，確保沒有語法錯誤
+          chmod +x build.sh
+          # 注意：我們不真的執行 build.sh (因為它預設會有 docker 邏輯或是本地路徑依賴)
+          # 這裡我們直接用 cmake 手動跑，比較穩
+          mkdir build
+          cd build
+          cmake -DPICO_BOARD=pico2_w ..
+          make -j2
