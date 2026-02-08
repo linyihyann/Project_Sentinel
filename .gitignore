@@ -9,4 +9,5 @@ build_test/
 
 # 編輯器暫存檔
 .vscode/
-.DS_Store
+.DS_Storebuild/
+build_test/
