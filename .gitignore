@@ -1,13 +1,30 @@
-# 編譯產出 (Build Artifacts)
+# 忽略編譯產出目錄
 build/
-build_test/
+cmake-build-debug/
+cmake-build-release/
+
+# 忽略二進制韌體檔 (除非你想備份它，但通常由 CI 產出)
 *.uf2
 *.elf
-*.hex
-*.bin
 *.map
+*.bin
+*.hex
+*.dis
 
-# 編輯器暫存檔
+# 忽略編輯器設定
 .vscode/
-.DS_Storebuild/
-build_test/
+.idea/
+.DS_Store
+
+# 忽略 Python 快取 (如果有用 Python 腳本)
+__pycache__/
+*.pycbuild/
+*.uf2
+*.elf
+*.bin
+.vscode/
+build/
+*.uf2
+*.elf
+*.bin
+.vscode/

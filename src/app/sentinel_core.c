@@ -6,7 +6,5 @@ SentinelStatus Sentinel_CheckVoltage(float voltage) {
         return STATUS_LOW_BATTERY;
     }
 
-    // 未來可以在這裡加入遲滯 (Hysteresis) 邏輯
-
     return STATUS_OK;
 }
