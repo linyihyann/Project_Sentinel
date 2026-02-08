@@ -31,7 +31,8 @@ jobs:
       - name: 🧪 Build & Run Unit Tests
         run: |
           chmod +x build.sh
-          ./build.sh -t
+          # 加入 --clean 參數，確保每次都是全新的開始
+          ./build.sh -t --clean
 
   # === Job 2: 韌體編譯測試 (Target Machine) ===
   build-firmware:
