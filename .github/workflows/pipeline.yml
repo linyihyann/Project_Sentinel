@@ -50,7 +50,10 @@ jobs:
       - name: 📥 Clone Pico SDK
         run: |
           git clone -b master https://github.com/raspberrypi/pico-sdk.git
-          echo "PICO_SDK_PATH=$PWD/pico-sdk" >> $GITHUB_ENV
+          cd pico-sdk
+          # 【關鍵修正】下載必要的子模組 (WiFi, USB, NetStack)
+          git submodule update --init
+          echo "PICO_SDK_PATH=$PWD" >> $GITHUB_ENV
 
       - name: 🔨 Build Firmware (Dry Run)
         run: |
