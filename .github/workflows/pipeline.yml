@@ -2,7 +2,7 @@ name: Sentinel CI Pipeline
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main", "develop", "feature/**" ] # 🆕 建議加入 feature/** 讓分支也能跑測試
   pull_request:
     branches: [ "main" ]
 
@@ -11,21 +11,41 @@ jobs:
   quality-and-test:
     runs-on: ubuntu-latest
     steps:
-     # 修改後：(加入 submodules 設定)
-      - name: Checkout Repo with Submodules
+      - name: Checkout Repo
         uses: actions/checkout@v3
         with:
-          submodules: recursive  # 關鍵！遞迴下載所有子模組 (含 SDK 驅動)
-          fetch-depth: 0         # 建議：下載完整歷史，避免某些版本判斷錯誤
+          submodules: recursive
+          fetch-depth: 0
 
       - name: Install Tools
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake gcc cppcheck
 
+      # 🆕【新增】確保 Unity 存在 (防呆機制)
+      # 如果你的 lib/unity 已經在 repo 裡，這步會自動跳過；如果不在，它會救你一命。
+      - name: Ensure Unity Exists
+        run: |
+          if [ ! -d "lib/unity" ]; then
+            echo "Unity not found, cloning..."
+            git clone https://github.com/ThrowTheSwitch/Unity.git lib/unity
+          else
+            echo "Unity already exists."
+          fi
+
+      # 🆕【新增】確保 Mock Headers 資料夾結構存在
+      # 避免因為空資料夾沒被 git 傳上去而導致編譯失敗
+      - name: Ensure Mock Headers Structure
+        run: |
+          mkdir -p test/mock_headers/pico
+          mkdir -p test/mock_headers/hardware
+          touch test/mock_headers/pico/stdlib.h
+          touch test/mock_headers/hardware/uart.h
+          touch test/mock_headers/hardware/dma.h
+          touch test/mock_headers/hardware/irq.h
+
       - name: 🔍 Static Analysis (Cppcheck)
         run: |
-          # 這裡使用了我們剛剛優化過的指令
           cppcheck --enable=warning,performance,portability \
             --suppress=missingIncludeSystem \
             --suppress=unusedFunction \
@@ -35,16 +55,18 @@ jobs:
       - name: 🧪 Build & Run Unit Tests
         run: |
           chmod +x build.sh
-          # 加入 --clean 參數，確保每次都是全新的開始
+          # 這裡會執行我們在 CMakeLists.txt 設定好的 ctest
           ./build.sh -t --clean
 
   # === Job 2: 韌體編譯測試 (Target Machine) ===
   build-firmware:
-    needs: quality-and-test # 測試過了才准編譯韌體
+    needs: quality-and-test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          submodules: recursive # 記得這裡也要加，有些驅動可能在 submodule
 
       - name: Install ARM Toolchain
         run: |
@@ -55,17 +77,15 @@ jobs:
         run: |
           git clone -b master https://github.com/raspberrypi/pico-sdk.git
           cd pico-sdk
-          # 【關鍵修正】下載必要的子模組 (WiFi, USB, NetStack)
           git submodule update --init
+          # 設定環境變數供後續步驟使用
           echo "PICO_SDK_PATH=$PWD" >> $GITHUB_ENV
 
       - name: 🔨 Build Firmware (Dry Run)
         run: |
-          # 模擬真實編譯，確保沒有語法錯誤
-          chmod +x build.sh
-          # 注意：我們不真的執行 build.sh (因為它預設會有 docker 邏輯或是本地路徑依賴)
-          # 這裡我們直接用 cmake 手動跑，比較穩
-          mkdir build
-          cd build
-          cmake -DPICO_BOARD=pico2_w ..
+          # 這裡手動跑 cmake 以確保控制權
+          mkdir -p build_firmware
+          cd build_firmware
+          # 指向上一層的 CMakeLists.txt
+          cmake -DPICO_BOARD=pico2_w -DPICO_SDK_PATH=${{ env.PICO_SDK_PATH }} ..
           make -j2
