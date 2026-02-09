@@ -5,4 +5,4 @@ UseTab: Never
 ColumnLimit: 100
 AllowShortFunctionsOnASingleLine: Empty
 SortIncludes: true
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Allman

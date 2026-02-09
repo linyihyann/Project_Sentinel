@@ -18,13 +18,4 @@ cmake-build-release/
 
 # 忽略 Python 快取 (如果有用 Python 腳本)
 __pycache__/
-*.pycbuild/
-*.uf2
-*.elf
-*.bin
-.vscode/
-build/
-*.uf2
-*.elf
-*.bin
-.vscode/
+*.pyc
