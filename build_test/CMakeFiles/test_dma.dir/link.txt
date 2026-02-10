@@ -1,1 +1,0 @@
-/usr/bin/cc -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_dma.dir/test_hal_uart_dma.c.o CMakeFiles/test_dma.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o -o test_dma

@@ -1,2 +1,2 @@
-# Empty dependencies file for test_dma.
+# Empty dependencies file for test_ring_buffer.
 # This may be replaced when dependencies are built.

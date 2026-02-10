@@ -40,7 +40,7 @@ if [ "$TARGET" == "test" ]; then
     make -j$JOBS
     
     echo "🚀 Running Tests..."
-    ./run_tests
+    ctest -V
     
 else
     # === 韌體模式 (Target Build) ===

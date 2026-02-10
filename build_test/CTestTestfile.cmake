@@ -5,6 +5,6 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 add_test(SentinelCoreTest "/Users/linyiyan/Project_Sentinel/build_test/run_tests")
-set_tests_properties(SentinelCoreTest PROPERTIES  _BACKTRACE_TRIPLES "/Users/linyiyan/Project_Sentinel/test/CMakeLists.txt;20;add_test;/Users/linyiyan/Project_Sentinel/test/CMakeLists.txt;0;")
-add_test(DmaDriverTest "/Users/linyiyan/Project_Sentinel/build_test/test_dma")
-set_tests_properties(DmaDriverTest PROPERTIES  _BACKTRACE_TRIPLES "/Users/linyiyan/Project_Sentinel/test/CMakeLists.txt;36;add_test;/Users/linyiyan/Project_Sentinel/test/CMakeLists.txt;0;")
+set_tests_properties(SentinelCoreTest PROPERTIES  _BACKTRACE_TRIPLES "/Users/linyiyan/Project_Sentinel/test/CMakeLists.txt;25;add_test;/Users/linyiyan/Project_Sentinel/test/CMakeLists.txt;0;")
+add_test(RingBufferTest "/Users/linyiyan/Project_Sentinel/build_test/test_ring_buffer")
+set_tests_properties(RingBufferTest PROPERTIES  _BACKTRACE_TRIPLES "/Users/linyiyan/Project_Sentinel/test/CMakeLists.txt;39;add_test;/Users/linyiyan/Project_Sentinel/test/CMakeLists.txt;0;")

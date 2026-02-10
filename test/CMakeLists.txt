@@ -3,11 +3,16 @@ project(UnitTests C)
 set(CMAKE_C_STANDARD 11)
 enable_testing()
 
-# 設定 Unity
-set(UNITY_SRC ../lib/unity/src/unity.c)
-set(UNITY_INCLUDE ../lib/unity/src)
+# ==========================================
+# 1. 設定 Unity 路徑 (全域變數)
+# ==========================================
+# 確保這個路徑指向你下載 unity.c 的地方 (test/unity)
+set(UNITY_SRC ${CMAKE_CURRENT_SOURCE_DIR}/../lib/unity/src/unity.c)
+set(UNITY_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/../lib/unity/src)
 
-# --- 測試 1: Core Logic ---
+# ==========================================
+# 2. 測試目標 1: Sentinel Core (App Logic)
+# ==========================================
 add_executable(run_tests
     test_sentinel.c
     ${UNITY_SRC}
@@ -19,18 +24,33 @@ target_include_directories(run_tests PRIVATE
 )
 add_test(NAME SentinelCoreTest COMMAND run_tests)
 
-# --- 測試 2: DMA Driver (Day 6) ---
-add_executable(test_dma
-    test_hal_uart_dma.c
+# ==========================================
+# 3. 測試目標 2: Ring Buffer (Day 7 新增) ✅
+# ==========================================
+add_executable(test_ring_buffer
+    test_ring_buffer.c
     ${UNITY_SRC}
-    # 注意：不要加入 ../src/hal/hal_uart_dma.c，因為 test_hal_uart_dma.c 裡面已經 include 了
+    ../src/common/ring_buffer.c
 )
-
-target_include_directories(test_dma PRIVATE
+target_include_directories(test_ring_buffer PRIVATE
     ${UNITY_INCLUDE}
-    ../src
-    # ✅【關鍵修正】這裡必須跟步驟 1 建立的資料夾名稱一模一樣！
-    ${CMAKE_CURRENT_SOURCE_DIR}/mock_headers 
+    ../src/common
 )
+add_test(NAME RingBufferTest COMMAND test_ring_buffer)
 
-add_test(NAME DmaDriverTest COMMAND test_dma)
+# ==========================================
+# 4. 測試目標 3: DMA Driver (Day 6) 🛠️ 修正處
+# ==========================================
+#add_executable(test_dma
+#    test_hal_uart_dma.c
+ #   ${UNITY_SRC}
+    # 注意：不要加入 ../src/hal/hal_uart_dma.c，因為 test 檔裡已經 include 了 .c
+#)
+
+#target_include_directories(test_dma PRIVATE
+ #   ${UNITY_INCLUDE}                       # <--- [關鍵修正] 之前這裡漏了或寫錯了，導致找不到 unity.h
+  #  ../src
+   # ${CMAKE_CURRENT_SOURCE_DIR}/mock_headers 
+#)
+
+#add_test(NAME DmaDriverTest COMMAND test_dma)

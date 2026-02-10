@@ -64,12 +64,12 @@ CMAKE_BINARY_DIR = /Users/linyiyan/Project_Sentinel/build_test
 
 # The main recursive "all" target.
 all: CMakeFiles/run_tests.dir/all
-all: CMakeFiles/test_dma.dir/all
+all: CMakeFiles/test_ring_buffer.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/run_tests.dir/codegen
-codegen: CMakeFiles/test_dma.dir/codegen
+codegen: CMakeFiles/test_ring_buffer.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -78,7 +78,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/run_tests.dir/clean
-clean: CMakeFiles/test_dma.dir/clean
+clean: CMakeFiles/test_ring_buffer.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -114,36 +114,36 @@ CMakeFiles/run_tests.dir/clean:
 .PHONY : CMakeFiles/run_tests.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test_dma.dir
+# Target rules for target CMakeFiles/test_ring_buffer.dir
 
 # All Build rule for target.
-CMakeFiles/test_dma.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dma.dir/build.make CMakeFiles/test_dma.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dma.dir/build.make CMakeFiles/test_dma.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=5,6,7 "Built target test_dma"
-.PHONY : CMakeFiles/test_dma.dir/all
+CMakeFiles/test_ring_buffer.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=5,6,7,8 "Built target test_ring_buffer"
+.PHONY : CMakeFiles/test_ring_buffer.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test_dma.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_dma.dir/all
+CMakeFiles/test_ring_buffer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_ring_buffer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles 0
-.PHONY : CMakeFiles/test_dma.dir/rule
+.PHONY : CMakeFiles/test_ring_buffer.dir/rule
 
 # Convenience name for target.
-test_dma: CMakeFiles/test_dma.dir/rule
-.PHONY : test_dma
+test_ring_buffer: CMakeFiles/test_ring_buffer.dir/rule
+.PHONY : test_ring_buffer
 
 # codegen rule for target.
-CMakeFiles/test_dma.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dma.dir/build.make CMakeFiles/test_dma.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=5,6,7 "Finished codegen for target test_dma"
-.PHONY : CMakeFiles/test_dma.dir/codegen
+CMakeFiles/test_ring_buffer.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=5,6,7,8 "Finished codegen for target test_ring_buffer"
+.PHONY : CMakeFiles/test_ring_buffer.dir/codegen
 
 # clean rule for target.
-CMakeFiles/test_dma.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dma.dir/build.make CMakeFiles/test_dma.dir/clean
-.PHONY : CMakeFiles/test_dma.dir/clean
+CMakeFiles/test_ring_buffer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/clean
+.PHONY : CMakeFiles/test_ring_buffer.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -49,13 +49,12 @@ jobs:
           cppcheck --enable=warning,performance,portability \
             --suppress=missingIncludeSystem \
             --suppress=unusedFunction \
-            -I src/app -I src/hal \
+            -I src/app -I src/hal -I src/common \
             --error-exitcode=1 src/
 
       - name: 🧪 Build & Run Unit Tests
         run: |
           chmod +x build.sh
-          # 這裡會執行我們在 CMakeLists.txt 設定好的 ctest
           ./build.sh -t --clean
 
   # === Job 2: 韌體編譯測試 (Target Machine) ===
@@ -68,10 +67,13 @@ jobs:
         with:
           submodules: recursive # 記得這裡也要加，有些驅動可能在 submodule
 
-      - name: Install ARM Toolchain
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential cmake
+      - name: Install Arm GNU Toolchain
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '13.2.Rel1'
+
+      - name: Install CMake & Ninja
+        run: sudo apt-get install -y cmake ninja-build
 
       - name: 📥 Clone Pico SDK
         run: |
@@ -83,9 +85,11 @@ jobs:
 
       - name: 🔨 Build Firmware (Dry Run)
         run: |
-          # 這裡手動跑 cmake 以確保控制權
-          mkdir -p build_firmware
-          cd build_firmware
-          # 指向上一層的 CMakeLists.txt
-          cmake -DPICO_BOARD=pico2_w -DPICO_SDK_PATH=${{ env.PICO_SDK_PATH }} ..
-          make -j2
+          chmod +x build.sh
+          ./build.sh -t --clean
+    # 上傳編譯好的 .uf2 檔
+      - name: Upload Firmware Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project_sentinel_firmware
+          path: build/*.uf2      

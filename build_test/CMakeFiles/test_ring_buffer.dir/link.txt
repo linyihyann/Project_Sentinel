@@ -1,0 +1,1 @@
+/usr/bin/cc -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_ring_buffer.dir/test_ring_buffer.c.o CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o -o test_ring_buffer

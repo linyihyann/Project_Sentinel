@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/linyiyan/Project_Sentinel/test/../lib/unity/src -I/Users/linyiyan/Project_Sentinel/test/../src/app
+C_INCLUDES = -I/Users/linyiyan/Project_Sentinel/test/../lib/unity/src -I/Users/linyiyan/Project_Sentinel/test/../src/common
 
 C_FLAGSarm64 = -g -std=gnu11 -arch arm64
 
