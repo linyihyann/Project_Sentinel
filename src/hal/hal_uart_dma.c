@@ -85,8 +85,8 @@ size_t hal_uart_dma_read(uint8_t* buffer, size_t max_len)
 {
     // 取得 DMA 目前寫到哪裡了 (Hardware Write Pointer)
     // hw_addr->write_addr 會回傳絕對位址，我們需要轉成相對 index
-    uint32_t current_write_addr = (uint32_t)dma_channel_hw_addr(dma_rx_chan)->write_addr;
-    uint32_t start_addr = (uint32_t)rx_ring_buffer;
+    uintptr_t current_write_addr = (uintptr_t)dma_channel_hw_addr(dma_rx_chan)->write_addr;
+    uintptr_t start_addr = (uintptr_t)rx_ring_buffer;
 
     // 計算硬體目前的 index (Producer Index)
     uint32_t rx_write_index = (current_write_addr - start_addr) % UART_DMA_BUFFER_SIZE;

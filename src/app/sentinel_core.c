@@ -1,16 +1,20 @@
 #include "sentinel_core.h"
 
-SentinelStatus Sentinel_CheckVoltage(float voltage) {
+SentinelStatus Sentinel_CheckVoltage(float voltage)
+{
     // 簡單的邊界判斷
-    if (voltage < 3.0f) {
+    if (voltage < 3.0f)
+    {
         return STATUS_LOW_BATTERY;
     }
 
     return STATUS_OK;
 }
 
-void sentinel_init(void) {
+void sentinel_init(void)
+{
     int x = 0;
-    if (x) {
+    if (x)
+    {
     }
 }

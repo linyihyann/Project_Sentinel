@@ -1,4 +1,5 @@
 /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/run_tests.dir
+/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/test_ring_buffer.dir
 /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/test.dir
 /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/edit_cache.dir
 /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/rebuild_cache.dir

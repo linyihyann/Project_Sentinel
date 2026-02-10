@@ -139,12 +139,26 @@ run_tests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
 .PHONY : run_tests/fast
 
+#=============================================================================
+# Target rules for targets named test_ring_buffer
+
+# Build rule for target.
+test_ring_buffer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_ring_buffer
+.PHONY : test_ring_buffer
+
+# fast build rule for target.
+test_ring_buffer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/build
+.PHONY : test_ring_buffer/fast
+
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.o: Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
 .PHONY : Users/linyiyan/Project_Sentinel/lib/unity/src/unity.o
 
 # target to build an object file
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
 .PHONY : Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
 
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.i: Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
@@ -153,6 +167,7 @@ Users/linyiyan/Project_Sentinel/lib/unity/src/unity.i: Users/linyiyan/Project_Se
 # target to preprocess a source file
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
 .PHONY : Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
 
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.s: Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
@@ -161,6 +176,7 @@ Users/linyiyan/Project_Sentinel/lib/unity/src/unity.s: Users/linyiyan/Project_Se
 # target to generate assembly for a file
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
 .PHONY : Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
 
 Users/linyiyan/Project_Sentinel/src/app/sentinel_core.o: Users/linyiyan/Project_Sentinel/src/app/sentinel_core.c.o
@@ -186,6 +202,54 @@ Users/linyiyan/Project_Sentinel/src/app/sentinel_core.s: Users/linyiyan/Project_
 Users/linyiyan/Project_Sentinel/src/app/sentinel_core.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Users/linyiyan/Project_Sentinel/src/app/sentinel_core.c.s
 .PHONY : Users/linyiyan/Project_Sentinel/src/app/sentinel_core.c.s
+
+Users/linyiyan/Project_Sentinel/src/common/ring_buffer.o: Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o
+.PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.o
+
+# target to build an object file
+Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o
+.PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o
+
+Users/linyiyan/Project_Sentinel/src/common/ring_buffer.i: Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i
+.PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.i
+
+# target to preprocess a source file
+Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i
+.PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i
+
+Users/linyiyan/Project_Sentinel/src/common/ring_buffer.s: Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
+.PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.s
+
+# target to generate assembly for a file
+Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
+.PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
+
+test_ring_buffer.o: test_ring_buffer.c.o
+.PHONY : test_ring_buffer.o
+
+# target to build an object file
+test_ring_buffer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/test_ring_buffer.c.o
+.PHONY : test_ring_buffer.c.o
+
+test_ring_buffer.i: test_ring_buffer.c.i
+.PHONY : test_ring_buffer.i
+
+# target to preprocess a source file
+test_ring_buffer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/test_ring_buffer.c.i
+.PHONY : test_ring_buffer.c.i
+
+test_ring_buffer.s: test_ring_buffer.c.s
+.PHONY : test_ring_buffer.s
+
+# target to generate assembly for a file
+test_ring_buffer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/test_ring_buffer.c.s
+.PHONY : test_ring_buffer.c.s
 
 test_sentinel.o: test_sentinel.c.o
 .PHONY : test_sentinel.o
@@ -221,12 +285,19 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... run_tests"
+	@echo "... test_ring_buffer"
 	@echo "... Users/linyiyan/Project_Sentinel/lib/unity/src/unity.o"
 	@echo "... Users/linyiyan/Project_Sentinel/lib/unity/src/unity.i"
 	@echo "... Users/linyiyan/Project_Sentinel/lib/unity/src/unity.s"
 	@echo "... Users/linyiyan/Project_Sentinel/src/app/sentinel_core.o"
 	@echo "... Users/linyiyan/Project_Sentinel/src/app/sentinel_core.i"
 	@echo "... Users/linyiyan/Project_Sentinel/src/app/sentinel_core.s"
+	@echo "... Users/linyiyan/Project_Sentinel/src/common/ring_buffer.o"
+	@echo "... Users/linyiyan/Project_Sentinel/src/common/ring_buffer.i"
+	@echo "... Users/linyiyan/Project_Sentinel/src/common/ring_buffer.s"
+	@echo "... test_ring_buffer.o"
+	@echo "... test_ring_buffer.i"
+	@echo "... test_ring_buffer.s"
 	@echo "... test_sentinel.o"
 	@echo "... test_sentinel.i"
 	@echo "... test_sentinel.s"

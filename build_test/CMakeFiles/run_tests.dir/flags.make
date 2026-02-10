@@ -6,7 +6,7 @@ C_DEFINES =
 
 C_INCLUDES = -I/Users/linyiyan/Project_Sentinel/test/../lib/unity/src -I/Users/linyiyan/Project_Sentinel/test/../src/app
 
-C_FLAGSarm64 = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+C_FLAGSarm64 = -g -std=gnu11 -arch arm64
 
-C_FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+C_FLAGS = -g -std=gnu11 -arch arm64
 

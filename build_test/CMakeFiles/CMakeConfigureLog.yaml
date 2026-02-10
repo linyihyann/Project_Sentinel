@@ -5,7 +5,7 @@ events:
     kind: "find-v1"
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_UNAME"
     description: "Path to a program."
@@ -20,7 +20,6 @@ events:
     names:
       - "uname"
     candidate_directories:
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -42,7 +41,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/cmake/v3.31.5/bin/"
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/uname"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/uname"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/uname"
       - "/usr/local/bin/uname"
@@ -50,7 +48,6 @@ events:
     found: "/usr/bin/uname"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -77,14 +74,14 @@ events:
     kind: "message-v1"
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:212 (message)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     message: |
       The system is: Darwin - 25.2.0 - arm64
   -
     kind: "find-v1"
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_MAKE_PROGRAM"
     description: "Path to a program."
@@ -101,7 +98,6 @@ events:
       - "make"
       - "smake"
     candidate_directories:
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -123,7 +119,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/cmake/v3.31.5/bin/"
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/gmake"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/gmake"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/gmake"
       - "/usr/local/bin/gmake"
@@ -144,7 +139,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/picotool/2.2.0-a4/picotool/gmake"
       - "/Users/linyiyan/.pico-sdk/cmake/v3.31.5/bin/gmake"
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/gmake"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/make"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/make"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/make"
       - "/usr/local/bin/make"
@@ -152,7 +146,6 @@ events:
     found: "/usr/bin/make"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -180,7 +173,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_C_COMPILER"
     description: "C compiler"
@@ -201,7 +194,6 @@ events:
       - "icx"
       - "clang"
     candidate_directories:
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -223,7 +215,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/cmake/v3.31.5/bin/"
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/cc"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/cc"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/cc"
       - "/usr/local/bin/cc"
@@ -231,7 +222,6 @@ events:
     found: "/usr/bin/cc"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -262,7 +252,7 @@ events:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -281,7 +271,6 @@ events:
     found: "/opt/homebrew/share/cmake/Modules/CMakeCCompilerId.c.in"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -310,7 +299,7 @@ events:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler: /usr/bin/cc 
@@ -331,7 +320,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:290 (message)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Detecting C compiler apple sysroot: "/usr/bin/cc" "-E" "apple-sdk.c"
         # 1 "apple-sdk.c"
@@ -359,7 +348,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_AR"
     description: "Path to a program."
@@ -375,7 +364,6 @@ events:
       - "ar"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -398,7 +386,6 @@ events:
     found: "/usr/bin/ar"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -426,7 +413,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_RANLIB"
     description: "Path to a program."
@@ -442,7 +429,6 @@ events:
       - "ranlib"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -465,7 +451,6 @@ events:
     found: "/usr/bin/ranlib"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -493,7 +478,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_STRIP"
     description: "Path to a program."
@@ -509,7 +494,6 @@ events:
       - "strip"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -532,7 +516,6 @@ events:
     found: "/usr/bin/strip"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -560,7 +543,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
     description: "Path to a program."
@@ -576,7 +559,6 @@ events:
       - "ld"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -599,7 +581,6 @@ events:
     found: "/usr/bin/ld"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -627,7 +608,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_NM"
     description: "Path to a program."
@@ -643,7 +624,6 @@ events:
       - "nm"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -666,7 +646,6 @@ events:
     found: "/usr/bin/nm"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -694,7 +673,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_OBJDUMP"
     description: "Path to a program."
@@ -710,7 +689,6 @@ events:
       - "objdump"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -733,7 +711,6 @@ events:
     found: "/usr/bin/objdump"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -761,7 +738,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_OBJCOPY"
     description: "Path to a program."
@@ -777,7 +754,6 @@ events:
       - "objcopy"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -799,7 +775,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
       - "/usr/bin/objcopy"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/objcopy"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/objcopy"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/objcopy"
       - "/usr/local/bin/objcopy"
@@ -822,7 +797,6 @@ events:
     found: false
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -850,7 +824,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_READELF"
     description: "Path to a program."
@@ -866,7 +840,6 @@ events:
       - "readelf"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -888,7 +861,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
       - "/usr/bin/readelf"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/readelf"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/readelf"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/readelf"
       - "/usr/local/bin/readelf"
@@ -911,7 +883,6 @@ events:
     found: false
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -939,7 +910,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_DLLTOOL"
     description: "Path to a program."
@@ -955,7 +926,6 @@ events:
       - "dlltool"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -977,7 +947,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
       - "/usr/bin/dlltool"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/dlltool"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/dlltool"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/dlltool"
       - "/usr/local/bin/dlltool"
@@ -1000,7 +969,6 @@ events:
     found: false
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -1028,7 +996,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_ADDR2LINE"
     description: "Path to a program."
@@ -1044,7 +1012,6 @@ events:
       - "addr2line"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -1066,7 +1033,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
       - "/usr/bin/addr2line"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/addr2line"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/addr2line"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/addr2line"
       - "/usr/local/bin/addr2line"
@@ -1089,7 +1055,6 @@ events:
     found: false
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -1117,7 +1082,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_TAPI"
     description: "Path to a program."
@@ -1133,7 +1098,6 @@ events:
       - "tapi"
     candidate_directories:
       - "/usr/bin/"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -1155,7 +1119,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
       - "/usr/bin/tapi"
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/tapi"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/tapi"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/tapi"
       - "/usr/local/bin/tapi"
@@ -1178,7 +1141,6 @@ events:
     found: false
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -1206,7 +1168,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake:76 (find_program)"
       - "/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_INSTALL_NAME_TOOL"
     description: "Path to a program."
@@ -1221,7 +1183,6 @@ events:
     names:
       - "install_name_tool"
     candidate_directories:
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/usr/local/bin/"
@@ -1243,7 +1204,6 @@ events:
       - "/Users/linyiyan/.pico-sdk/cmake/v3.31.5/bin/"
       - "/Users/linyiyan/.pico-sdk/ninja/v1.12.1/"
     searched_directories:
-      - "/Library/Developer/CommandLineTools/usr/libexec/git-core/install_name_tool"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/install_name_tool"
       - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/install_name_tool"
       - "/usr/local/bin/install_name_tool"
@@ -1251,7 +1211,6 @@ events:
     found: "/usr/bin/install_name_tool"
     search_context:
       ENV{PATH}:
-        - "/Library/Developer/CommandLineTools/usr/libexec/git-core"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
         - "/Users/linyiyan/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/usr/local/bin"
@@ -1280,35 +1239,35 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-l7bW5K"
-      binary: "/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-l7bW5K"
+      source: "/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-CDVBYa"
+      binary: "/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-CDVBYa"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
       CMAKE_EXE_LINKER_FLAGS: ""
       CMAKE_OSX_ARCHITECTURES: ""
       CMAKE_OSX_DEPLOYMENT_TARGET: ""
-      CMAKE_OSX_SYSROOT: "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+      CMAKE_OSX_SYSROOT: ""
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-l7bW5K'
+        Change Dir: '/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-CDVBYa'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_65b91/fast
-        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_65b91.dir/build.make CMakeFiles/cmTC_65b91.dir/build
-        Building C object CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o
-        /usr/bin/cc   -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk   -v -Wl,-v -MD -MT CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d8a29/fast
+        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d8a29.dir/build.make CMakeFiles/cmTC_d8a29.dir/build
+        Building C object CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         Apple clang version 12.0.5 (clang-1205.0.22.9)
         Target: aarch64-apple-darwin25.2.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
         clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
-         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx11.3.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -munwind-tables -target-sdk-version=11.3 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-a12 -target-feature +v8.3a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +fullfp16 -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 650.9 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5 -dependency-file CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -fdebug-compilation-dir /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-l7bW5K -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -mllvm -disable-aligned-alloc-awareness=1 -o CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx11.3.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -munwind-tables -target-sdk-version=11.3 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-a12 -target-feature +v8.3a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +fullfp16 -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 650.9 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5 -dependency-file CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -fdebug-compilation-dir /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-CDVBYa -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -mllvm -disable-aligned-alloc-awareness=1 -o CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         clang -cc1 version 12.0.5 (clang-1205.0.22.9) default target arm64-apple-darwin25.2.0
         ignoring nonexistent directory "/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"
@@ -1320,13 +1279,13 @@ events:
          /Library/Developer/CommandLineTools/usr/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
         End of search list.
-        Linking C executable cmTC_65b91
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65b91.dir/link.txt --verbose=1
+        Linking C executable cmTC_d8a29
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8a29.dir/link.txt --verbose=1
         Apple clang version 12.0.5 (clang-1205.0.22.9)
         Target: aarch64-apple-darwin25.2.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 11.3.0 11.3 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_65b91 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/lib/darwin/libclang_rt.osx.a
+         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 11.3.0 11.3 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_d8a29 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld  PROJECT:ld64-650.9
         BUILD 00:19:34 Mar 17 2021
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -1335,7 +1294,7 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/
-        /usr/bin/cc  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -o cmTC_65b91
+        /usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -o cmTC_d8a29
         
       exitCode: 0
   -
@@ -1343,7 +1302,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:122 (message)"
       - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Effective list of requested architectures (possibly empty)  : ""
       Effective list of architectures found in the ABI info binary: "arm64"
@@ -1352,7 +1311,7 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
       - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit include dir info: rv=done
         found start of include info
@@ -1372,23 +1331,23 @@ events:
     backtrace:
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
       - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-l7bW5K']
+        ignore line: [Change Dir: '/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-CDVBYa']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_65b91/fast]
-        ignore line: [/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_65b91.dir/build.make CMakeFiles/cmTC_65b91.dir/build]
-        ignore line: [Building C object CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/cc   -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk   -v -Wl -v -MD -MT CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d8a29/fast]
+        ignore line: [/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d8a29.dir/build.make CMakeFiles/cmTC_d8a29.dir/build]
+        ignore line: [Building C object CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Apple clang version 12.0.5 (clang-1205.0.22.9)]
         ignore line: [Target: aarch64-apple-darwin25.2.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
         ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx11.3.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -munwind-tables -target-sdk-version=11.3 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-a12 -target-feature +v8.3a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +fullfp16 -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 650.9 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5 -dependency-file CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -fdebug-compilation-dir /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-l7bW5K -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -mllvm -disable-aligned-alloc-awareness=1 -o CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx11.3.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -munwind-tables -target-sdk-version=11.3 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-a12 -target-feature +v8.3a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +fullfp16 -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 650.9 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5 -dependency-file CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -fdebug-compilation-dir /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles/CMakeScratch/TryCompile-CDVBYa -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -mllvm -disable-aligned-alloc-awareness=1 -o CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [clang -cc1 version 12.0.5 (clang-1205.0.22.9) default target arm64-apple-darwin25.2.0]
         ignore line: [ignoring nonexistent directory "/usr/local/include"]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"]
@@ -1400,13 +1359,13 @@ events:
         ignore line: [ /Library/Developer/CommandLineTools/usr/include]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking C executable cmTC_65b91]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65b91.dir/link.txt --verbose=1]
+        ignore line: [Linking C executable cmTC_d8a29]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8a29.dir/link.txt --verbose=1]
         ignore line: [Apple clang version 12.0.5 (clang-1205.0.22.9)]
         ignore line: [Target: aarch64-apple-darwin25.2.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 11.3.0 11.3 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_65b91 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 11.3.0 11.3 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_d8a29 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/lib/darwin/libclang_rt.osx.a]
           arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -1421,12 +1380,12 @@ events:
           arg [-syslibroot] ==> ignore
           arg [/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_65b91] ==> ignore
+          arg [cmTC_d8a29] ==> ignore
           arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_65b91.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_d8a29.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lSystem] ==> lib [System]
           arg [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/lib/darwin/libclang_rt.osx.a]
         linker tool for 'C': /Library/Developer/CommandLineTools/usr/bin/ld
@@ -1450,7 +1409,7 @@ events:
       - "/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
       - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
       - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:4 (project)"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "/Library/Developer/CommandLineTools/usr/bin/ld" "-v"
       @(#)PROGRAM:ld  PROJECT:ld64-650.9

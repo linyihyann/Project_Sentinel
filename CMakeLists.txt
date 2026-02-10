@@ -18,18 +18,20 @@ add_executable(project_sentinel
     src/main.c
     src/app/sentinel_core.c
     src/hal/hal_led.c
-    src/hal/hal_uart_dma.c  # <--- [NEW] 加入這個檔案
+    src/hal/hal_uart_dma.c 
+    src/common/ring_buffer.c
 )
 
 target_include_directories(project_sentinel PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/common
 )
 
 target_link_libraries(project_sentinel
     pico_stdlib
     pico_cyw43_arch_none
-    hardware_uart           # <--- [NEW] 必須加入這個
-    hardware_dma            # <--- [NEW] 必須加入這個
+    hardware_uart           
+    hardware_dma            
 )
 
 # 啟用 USB (變成虛擬串口)

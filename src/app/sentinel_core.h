@@ -2,7 +2,12 @@
 #define SENTINEL_CORE_H
 
 // 定義狀態碼，方便測試與除錯
-typedef enum { STATUS_OK, STATUS_LOW_BATTERY, STATUS_ERROR } SentinelStatus;
+typedef enum
+{
+    STATUS_OK,
+    STATUS_LOW_BATTERY,
+    STATUS_ERROR
+} SentinelStatus;
 
 /**
  * @brief 檢查電池電壓狀態
