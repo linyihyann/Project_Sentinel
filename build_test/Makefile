@@ -152,6 +152,19 @@ test_ring_buffer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/build
 .PHONY : test_ring_buffer/fast
 
+#=============================================================================
+# Target rules for targets named test_hal_uart
+
+# Build rule for target.
+test_hal_uart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_hal_uart
+.PHONY : test_hal_uart
+
+# fast build rule for target.
+test_hal_uart/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/build
+.PHONY : test_hal_uart/fast
+
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.o: Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
 .PHONY : Users/linyiyan/Project_Sentinel/lib/unity/src/unity.o
 
@@ -159,6 +172,7 @@ Users/linyiyan/Project_Sentinel/lib/unity/src/unity.o: Users/linyiyan/Project_Se
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
 .PHONY : Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o
 
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.i: Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
@@ -168,6 +182,7 @@ Users/linyiyan/Project_Sentinel/lib/unity/src/unity.i: Users/linyiyan/Project_Se
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
 .PHONY : Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.i
 
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.s: Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
@@ -177,6 +192,7 @@ Users/linyiyan/Project_Sentinel/lib/unity/src/unity.s: Users/linyiyan/Project_Se
 Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
 .PHONY : Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.s
 
 Users/linyiyan/Project_Sentinel/src/app/sentinel_core.o: Users/linyiyan/Project_Sentinel/src/app/sentinel_core.c.o
@@ -226,6 +242,54 @@ Users/linyiyan/Project_Sentinel/src/common/ring_buffer.s: Users/linyiyan/Project
 Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
 .PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
+
+Users/linyiyan/Project_Sentinel/src/hal/hal_uart.o: Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.o
+.PHONY : Users/linyiyan/Project_Sentinel/src/hal/hal_uart.o
+
+# target to build an object file
+Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.o
+.PHONY : Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.o
+
+Users/linyiyan/Project_Sentinel/src/hal/hal_uart.i: Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.i
+.PHONY : Users/linyiyan/Project_Sentinel/src/hal/hal_uart.i
+
+# target to preprocess a source file
+Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.i
+.PHONY : Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.i
+
+Users/linyiyan/Project_Sentinel/src/hal/hal_uart.s: Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.s
+.PHONY : Users/linyiyan/Project_Sentinel/src/hal/hal_uart.s
+
+# target to generate assembly for a file
+Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.s
+.PHONY : Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.s
+
+test_hal_uart.o: test_hal_uart.c.o
+.PHONY : test_hal_uart.o
+
+# target to build an object file
+test_hal_uart.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/test_hal_uart.c.o
+.PHONY : test_hal_uart.c.o
+
+test_hal_uart.i: test_hal_uart.c.i
+.PHONY : test_hal_uart.i
+
+# target to preprocess a source file
+test_hal_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/test_hal_uart.c.i
+.PHONY : test_hal_uart.c.i
+
+test_hal_uart.s: test_hal_uart.c.s
+.PHONY : test_hal_uart.s
+
+# target to generate assembly for a file
+test_hal_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/test_hal_uart.c.s
+.PHONY : test_hal_uart.c.s
 
 test_ring_buffer.o: test_ring_buffer.c.o
 .PHONY : test_ring_buffer.o
@@ -285,6 +349,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... run_tests"
+	@echo "... test_hal_uart"
 	@echo "... test_ring_buffer"
 	@echo "... Users/linyiyan/Project_Sentinel/lib/unity/src/unity.o"
 	@echo "... Users/linyiyan/Project_Sentinel/lib/unity/src/unity.i"
@@ -295,6 +360,12 @@ help:
 	@echo "... Users/linyiyan/Project_Sentinel/src/common/ring_buffer.o"
 	@echo "... Users/linyiyan/Project_Sentinel/src/common/ring_buffer.i"
 	@echo "... Users/linyiyan/Project_Sentinel/src/common/ring_buffer.s"
+	@echo "... Users/linyiyan/Project_Sentinel/src/hal/hal_uart.o"
+	@echo "... Users/linyiyan/Project_Sentinel/src/hal/hal_uart.i"
+	@echo "... Users/linyiyan/Project_Sentinel/src/hal/hal_uart.s"
+	@echo "... test_hal_uart.o"
+	@echo "... test_hal_uart.i"
+	@echo "... test_hal_uart.s"
 	@echo "... test_ring_buffer.o"
 	@echo "... test_ring_buffer.i"
 	@echo "... test_ring_buffer.s"

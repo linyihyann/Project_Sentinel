@@ -65,11 +65,13 @@ CMAKE_BINARY_DIR = /Users/linyiyan/Project_Sentinel/build_test
 # The main recursive "all" target.
 all: CMakeFiles/run_tests.dir/all
 all: CMakeFiles/test_ring_buffer.dir/all
+all: CMakeFiles/test_hal_uart.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/run_tests.dir/codegen
 codegen: CMakeFiles/test_ring_buffer.dir/codegen
+codegen: CMakeFiles/test_hal_uart.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -79,6 +81,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/run_tests.dir/clean
 clean: CMakeFiles/test_ring_buffer.dir/clean
+clean: CMakeFiles/test_hal_uart.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -120,7 +123,7 @@ CMakeFiles/run_tests.dir/clean:
 CMakeFiles/test_ring_buffer.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=5,6,7,8 "Built target test_ring_buffer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=9,10,11,12 "Built target test_ring_buffer"
 .PHONY : CMakeFiles/test_ring_buffer.dir/all
 
 # Build rule for subdir invocation for target.
@@ -137,13 +140,45 @@ test_ring_buffer: CMakeFiles/test_ring_buffer.dir/rule
 # codegen rule for target.
 CMakeFiles/test_ring_buffer.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=5,6,7,8 "Finished codegen for target test_ring_buffer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=9,10,11,12 "Finished codegen for target test_ring_buffer"
 .PHONY : CMakeFiles/test_ring_buffer.dir/codegen
 
 # clean rule for target.
 CMakeFiles/test_ring_buffer.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/clean
 .PHONY : CMakeFiles/test_ring_buffer.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_hal_uart.dir
+
+# All Build rule for target.
+CMakeFiles/test_hal_uart.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=5,6,7,8 "Built target test_hal_uart"
+.PHONY : CMakeFiles/test_hal_uart.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_hal_uart.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_hal_uart.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/linyiyan/Project_Sentinel/build_test/CMakeFiles 0
+.PHONY : CMakeFiles/test_hal_uart.dir/rule
+
+# Convenience name for target.
+test_hal_uart: CMakeFiles/test_hal_uart.dir/rule
+.PHONY : test_hal_uart
+
+# codegen rule for target.
+CMakeFiles/test_hal_uart.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/linyiyan/Project_Sentinel/build_test/CMakeFiles --progress-num=5,6,7,8 "Finished codegen for target test_hal_uart"
+.PHONY : CMakeFiles/test_hal_uart.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_hal_uart.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/clean
+.PHONY : CMakeFiles/test_hal_uart.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

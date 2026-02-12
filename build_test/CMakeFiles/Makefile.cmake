@@ -118,4 +118,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/run_tests.dir/DependInfo.cmake"
   "CMakeFiles/test_ring_buffer.dir/DependInfo.cmake"
+  "CMakeFiles/test_hal_uart.dir/DependInfo.cmake"
   )
