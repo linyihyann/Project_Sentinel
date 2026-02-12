@@ -1,4 +1,4 @@
-SentinelCoreTest 1 0.368068
-RingBufferTest 1 0.360053
-HalUartTest 1 0.361191
+SentinelCoreTest 1 0.460119
+RingBufferTest 1 0.333425
+HalUartTest 1 0.368834
 ---
