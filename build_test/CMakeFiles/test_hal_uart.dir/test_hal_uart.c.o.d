@@ -1,6 +1,5 @@
 CMakeFiles/test_hal_uart.dir/test_hal_uart.c.o: \
   /Users/linyiyan/Project_Sentinel/test/test_hal_uart.c \
-  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stdbool.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types.h \
@@ -35,6 +34,7 @@ CMakeFiles/test_hal_uart.dir/test_hal_uart.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h \
   /Users/linyiyan/Project_Sentinel/test/../src/hal/hal_uart.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stdbool.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint8_t.h \
@@ -43,12 +43,13 @@ CMakeFiles/test_hal_uart.dir/test_hal_uart.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint64_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
+  /Users/linyiyan/Project_Sentinel/test/../src/common/ring_buffer.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stddef.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/__stddef_max_align_t.h \
   /Users/linyiyan/Project_Sentinel/test/../lib/unity/src/unity.h \
   /Users/linyiyan/Project_Sentinel/test/../lib/unity/src/unity_internals.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/setjmp.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/math.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stddef.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/__stddef_max_align_t.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/machine/limits.h \

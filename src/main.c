@@ -1,94 +1,100 @@
-/* src/main.c */
 #include <stdio.h>
+#include <string.h>  //  修正：支援 strlen 函式
 
+#include "hal_uart.h"
 #include "pico/stdlib.h"
 #include "ring_buffer.h"
 
-// 定義 Buffer 大小，必須是 2 的冪次方 (例如 32, 64, 128)
-#define BUFFER_SIZE 32
+//  修正：處理 RP2350 (Pico 2) 可能缺失的 LED 定義
+#ifndef PICO_DEFAULT_LED_PIN
+#define LED_PIN 25  // 預設 GPIO 25
+#else
+#define LED_PIN PICO_DEFAULT_LED_PIN
+#endif
 
-// 全域變數
-uint8_t raw_buffer[BUFFER_SIZE];
-ring_buffer_t rb;
-
-// 統計數據
-volatile uint32_t tx_count = 0;
-volatile uint32_t rx_count = 0;
-volatile uint32_t drop_count = 0;
-
-// --- 模擬 ISR (生產者) ---
-// 這是一個 Timer Callback，代表外部中斷 (如 UART Rx)
-bool timer_producer_callback(struct repeating_timer* t)
+// 定義系統物件
+typedef struct
 {
-    static uint8_t counter = 0;
+    ring_buffer_t rb;
+    uint8_t storage[256];  // 256 bytes buffer
+} System_Ctx_t;
 
-    // 嘗試將數據推入 Ring Buffer
-    if (rb_push(&rb, counter))
+static System_Ctx_t sys_ctx;
+static uart_handle_t h_uart;
+
+// ==========================================
+// Callback 實作 (Day 8 核心)
+// ==========================================
+//  當 UART 收到資料 (硬體 ISR) -> 呼叫這裡
+void My_UART_Callback(void* ctx, uart_event_t event, void* data)
+{
+    System_Ctx_t* sys = (System_Ctx_t*)ctx;
+
+    if (event == UART_EVENT_RX_COMPLETE)
     {
-        tx_count++;
-        counter++;  // 只有寫入成功才換下一個數字
+        //  修正：從 void* data 解引用取得正確數值並存入 Ring Buffer
+        uint8_t actual_data = *(uint8_t*)data;
+        rb_push(&sys->rb, actual_data);
     }
-    else
-    {
-        drop_count++;  // Buffer 滿了，資料遺失 (這是預期行為，我們想觀察這個)
-    }
-    return true;  // 繼續重複 Timer
 }
 
-// --- Main (消費者) ---
+// ==========================================
+// 主程式
+// ==========================================
 int main()
 {
+    // 1. 初始化 stdio (為了可以用 printf debug)
     stdio_init_all();
+    sleep_ms(2000);  // 等待 USB 連線穩定
+    printf("=== Day 8 Loopback Test Start ===\n");
 
-    // 等待 USB 連接 (方便觀察)
-    while (!stdio_usb_connected())
-    {
-        sleep_ms(100);
-    }
-    sleep_ms(2000);
-    printf("=== Day 7: Lock-Free Ring Buffer Stress Test ===\n");
+    //  2. 初始化 Ring Buffer (修正：改用 rb_init)
+    rb_init(&sys_ctx.rb, sys_ctx.storage, 256);
 
-    // 1. 初始化
-    if (!rb_init(&rb, raw_buffer, BUFFER_SIZE))
-    {
-        printf("[FATAL] Ring Buffer Init Failed! Check Size.\n");
-        while (1);
-    }
-    printf("[OK] Buffer Initialized. Size: %d\n", BUFFER_SIZE);
+    // 3. 初始化 UART 並註冊 Callback
+    HAL_UART_Init(&h_uart, 0);
+    HAL_UART_RegisterCallback(&h_uart, My_UART_Callback, &sys_ctx);
 
-    // 2. 啟動 Timer (每 50ms 產生一筆資料) -> 模擬高速 ISR
-    struct repeating_timer timer;
-    add_repeating_timer_ms(50, timer_producer_callback, NULL, &timer);
-    printf("[OK] Producer Timer Started (50ms interval).\n");
+    //  4. 設定 LED (用來當心跳燈)
+    gpio_init(LED_PIN);
+    gpio_set_dir(LED_PIN, GPIO_OUT);
 
-    uint8_t data;
+    // 5. 主迴圈 (Loopback Verification)
+    int send_counter = 0;
     while (true)
     {
-        // 3. 消費者讀取
-        // 我們故意加一點延遲，模擬主程式很忙碌，看看 Buffer 會不會爆
+        // --- 傳送端 (TX) ---
+        char tx_msg[32];
+        sprintf(tx_msg, "Ping %d\n", send_counter++);
 
-        if (rb_pop(&rb, &data))
+        printf("[TX] Sending: %s", tx_msg);
+        //  注意：確保 hal_uart.h 內已宣告 HAL_UART_Send
+        HAL_UART_Send(&h_uart, (uint8_t*)tx_msg, (uint16_t)strlen(tx_msg));
+
+        // --- 接收端 (RX) 檢查 ---
+        sleep_ms(100);  // 等待硬體傳輸與 ISR 處理
+
+        //  修正：改用 rb_is_empty 檢查
+        if (!rb_is_empty(&sys_ctx.rb))
         {
-            rx_count++;
-            // 可以在這裡印出 data，但太快了會洗版，我們改用統計數據
-            // printf("Read: %d\n", data);
+            printf("[RX] Received: ");
+            uint8_t rx_byte;
+            //  修正：改用 rb_pop 取出資料
+            while (rb_pop(&sys_ctx.rb, &rx_byte))
+            {
+                putchar(rx_byte);
+            }
+
+            // 閃爍 LED
+            gpio_put(LED_PIN, 1);
+            sleep_ms(50);
+            gpio_put(LED_PIN, 0);
+        }
+        else
+        {
+            printf("[RX] No Data! (Check wiring GP0 to GP1)\n");
         }
 
-        // 每秒印一次統計報告
-        static uint64_t last_report_time = 0;
-        uint64_t now = time_us_64();
-        if (now - last_report_time > 1000000)
-        {
-            last_report_time = now;
-
-            printf("Stats -> TX: %u | RX: %u | Drop: %u | Head: %u | Tail: %u\n", tx_count,
-                   rx_count, drop_count, rb.head, rb.tail);
-
-            // 如果你想測試 Drop，可以把下面的 sleep 打開，讓消費者變慢
-            // sleep_ms(200);
-        }
-
-        // 讓 CPU 稍微休息，但在真實高負載下通常不 sleep
-        sleep_ms(1);
+        sleep_ms(900);
     }
 }

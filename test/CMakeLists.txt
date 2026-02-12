@@ -3,6 +3,7 @@ project(UnitTests C)
 set(CMAKE_C_STANDARD 11)
 enable_testing()
 
+add_definitions(-DTEST_MODE) # 🟢 確保 Host 編譯時跳過硬體標頭檔
 # ==========================================
 # 1. 設定 Unity 路徑 (全域變數)
 # ==========================================
@@ -33,8 +34,9 @@ add_executable(test_ring_buffer
     ../src/common/ring_buffer.c
 )
 target_include_directories(test_ring_buffer PRIVATE
-    ${UNITY_INCLUDE}
-    ../src/common
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/hal
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/common   # 🟢 加入此行以連結 Ring Buffer 
+    ${CMAKE_CURRENT_SOURCE_DIR}/../lib/unity/src
 )
 add_test(NAME RingBufferTest COMMAND test_ring_buffer)
 
@@ -46,12 +48,14 @@ add_executable(test_hal_uart
     test_hal_uart.c
     ${UNITY_SRC}
     ../src/hal/hal_uart.c
+    ../src/common/ring_buffer.c
 )
 
 # 設定 Include Path，讓 test_hal_uart.c 能找到 "hal_uart.h"
 target_include_directories(test_hal_uart PRIVATE
-    ${UNITY_INCLUDE}
-    ../src/hal
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/hal
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/common 
+    ${CMAKE_CURRENT_SOURCE_DIR}/../lib/unity/src
 )
 
 # 註冊測試案例到 CTest
