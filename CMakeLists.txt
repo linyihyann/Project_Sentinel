@@ -25,6 +25,8 @@ add_executable(project_sentinel
 
 target_include_directories(project_sentinel PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/hal
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/app
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common
 )
 

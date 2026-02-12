@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c" "CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o" "gcc" "CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/lib/unity/src/unity.c.o.d"
+  "/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c" "CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o" "gcc" "CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o.d"
   "/Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c" "CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.o" "gcc" "CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.o.d"
   "/Users/linyiyan/Project_Sentinel/test/test_hal_uart.c" "CMakeFiles/test_hal_uart.dir/test_hal_uart.c.o" "gcc" "CMakeFiles/test_hal_uart.dir/test_hal_uart.c.o.d"
   )

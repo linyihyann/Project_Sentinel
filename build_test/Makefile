@@ -225,6 +225,7 @@ Users/linyiyan/Project_Sentinel/src/common/ring_buffer.o: Users/linyiyan/Project
 # target to build an object file
 Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o
 .PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.o
 
 Users/linyiyan/Project_Sentinel/src/common/ring_buffer.i: Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i
@@ -233,6 +234,7 @@ Users/linyiyan/Project_Sentinel/src/common/ring_buffer.i: Users/linyiyan/Project
 # target to preprocess a source file
 Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i
 .PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.i
 
 Users/linyiyan/Project_Sentinel/src/common/ring_buffer.s: Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
@@ -241,6 +243,7 @@ Users/linyiyan/Project_Sentinel/src/common/ring_buffer.s: Users/linyiyan/Project
 # target to generate assembly for a file
 Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ring_buffer.dir/build.make CMakeFiles/test_ring_buffer.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hal_uart.dir/build.make CMakeFiles/test_hal_uart.dir/Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
 .PHONY : Users/linyiyan/Project_Sentinel/src/common/ring_buffer.c.s
 
 Users/linyiyan/Project_Sentinel/src/hal/hal_uart.o: Users/linyiyan/Project_Sentinel/src/hal/hal_uart.c.o
