@@ -19,6 +19,7 @@ add_executable(project_sentinel
     src/app/sentinel_core.c
     src/hal/hal_led.c
     src/hal/hal_uart_dma.c 
+    src/hal/hal_uart.c
     src/common/ring_buffer.c
 )
 

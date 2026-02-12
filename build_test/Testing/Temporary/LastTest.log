@@ -1,10 +1,10 @@
-Start testing: Feb 10 20:39 CST
+Start testing: Feb 12 12:02 CST
 ----------------------------------------------------------
-1/2 Testing: SentinelCoreTest
-1/2 Test: SentinelCoreTest
+1/3 Testing: SentinelCoreTest
+1/3 Test: SentinelCoreTest
 Command: "/Users/linyiyan/Project_Sentinel/build_test/run_tests"
 Directory: /Users/linyiyan/Project_Sentinel/build_test
-"SentinelCoreTest" start time: Feb 10 20:39 CST
+"SentinelCoreTest" start time: Feb 12 12:02 CST
 Output:
 ----------------------------------------------------------
 /Users/linyiyan/Project_Sentinel/test/test_sentinel.c:40:test_System_Should_Be_Normal_At_3v3:PASS
@@ -15,18 +15,18 @@ Output:
 3 Tests 0 Failures 0 Ignored 
 OK
 <end of output>
-Test time =   0.50 sec
+Test time =   0.37 sec
 ----------------------------------------------------------
 Test Passed.
-"SentinelCoreTest" end time: Feb 10 20:39 CST
+"SentinelCoreTest" end time: Feb 12 12:02 CST
 "SentinelCoreTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/2 Testing: RingBufferTest
-2/2 Test: RingBufferTest
+2/3 Testing: RingBufferTest
+2/3 Test: RingBufferTest
 Command: "/Users/linyiyan/Project_Sentinel/build_test/test_ring_buffer"
 Directory: /Users/linyiyan/Project_Sentinel/build_test
-"RingBufferTest" start time: Feb 10 20:39 CST
+"RingBufferTest" start time: Feb 12 12:02 CST
 Output:
 ----------------------------------------------------------
 /Users/linyiyan/Project_Sentinel/test/test_ring_buffer.c:103:test_RingBuffer_Init_Should_ResetIndices:PASS
@@ -38,11 +38,32 @@ Output:
 4 Tests 0 Failures 0 Ignored 
 OK
 <end of output>
-Test time =   0.37 sec
+Test time =   0.36 sec
 ----------------------------------------------------------
 Test Passed.
-"RingBufferTest" end time: Feb 10 20:39 CST
+"RingBufferTest" end time: Feb 12 12:02 CST
 "RingBufferTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Feb 10 20:39 CST
+3/3 Testing: HalUartTest
+3/3 Test: HalUartTest
+Command: "/Users/linyiyan/Project_Sentinel/build_test/test_hal_uart"
+Directory: /Users/linyiyan/Project_Sentinel/build_test
+"HalUartTest" start time: Feb 12 12:02 CST
+Output:
+----------------------------------------------------------
+/Users/linyiyan/Project_Sentinel/test/test_hal_uart.c:63:test_callback_should_trigger_when_isr_fires:PASS
+/Users/linyiyan/Project_Sentinel/test/test_hal_uart.c:64:test_null_callback_safe:PASS
+
+-----------------------
+2 Tests 0 Failures 0 Ignored 
+OK
+<end of output>
+Test time =   0.36 sec
+----------------------------------------------------------
+Test Passed.
+"HalUartTest" end time: Feb 12 12:02 CST
+"HalUartTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 12 12:02 CST

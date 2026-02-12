@@ -39,7 +39,26 @@ target_include_directories(test_ring_buffer PRIVATE
 add_test(NAME RingBufferTest COMMAND test_ring_buffer)
 
 # ==========================================
-# 4. 測試目標 3: DMA Driver (Day 6) 🛠️ 修正處
+# 4. 測試目標 3: HAL UART (Day 8 Observer Pattern) ✅ NEW!
+# ==========================================
+# 這裡將 test_hal_uart.c 與實作 hal_uart.c 連結
+add_executable(test_hal_uart
+    test_hal_uart.c
+    ${UNITY_SRC}
+    ../src/hal/hal_uart.c
+)
+
+# 設定 Include Path，讓 test_hal_uart.c 能找到 "hal_uart.h"
+target_include_directories(test_hal_uart PRIVATE
+    ${UNITY_INCLUDE}
+    ../src/hal
+)
+
+# 註冊測試案例到 CTest
+add_test(NAME HalUartTest COMMAND test_hal_uart)
+
+# ==========================================
+# 5. 測試目標 3: DMA Driver (Day 6) 🛠️ 修正處
 # ==========================================
 #add_executable(test_dma
 #    test_hal_uart_dma.c
