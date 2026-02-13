@@ -20,7 +20,9 @@ add_executable(project_sentinel
     src/hal/hal_led.c
     src/hal/hal_uart_dma.c 
     src/hal/hal_uart.c
+    src/hal/hal_i2c.c
     src/common/ring_buffer.c
+    src/drivers/ssd1306_basic.c
 )
 
 target_include_directories(project_sentinel PRIVATE
@@ -28,6 +30,7 @@ target_include_directories(project_sentinel PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/hal
     ${CMAKE_CURRENT_SOURCE_DIR}/src/app
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/drivers
 )
 
 target_link_libraries(project_sentinel
@@ -35,6 +38,7 @@ target_link_libraries(project_sentinel
     pico_cyw43_arch_none
     hardware_uart           
     hardware_dma            
+    hardware_i2c
 )
 
 # 啟用 USB (變成虛擬串口)
