@@ -1,100 +1,137 @@
 #include <stdio.h>
-#include <string.h>  //  修正：支援 strlen 函式
+#include <string.h>
 
-#include "hal_uart.h"
 #include "pico/stdlib.h"
-#include "ring_buffer.h"
 
-//  修正：處理 RP2350 (Pico 2) 可能缺失的 LED 定義
+// 引入各層模組
+#include "hal_i2c.h"
+#include "hal_uart.h"
+#include "ring_buffer.h"
+#include "sentinel_core.h"
+#include "ssd1306_basic.h"
+
 #ifndef PICO_DEFAULT_LED_PIN
-#define LED_PIN 25  // 預設 GPIO 25
+#define LED_PIN 25
 #else
 #define LED_PIN PICO_DEFAULT_LED_PIN
 #endif
 
-// 定義系統物件
 typedef struct
 {
-    ring_buffer_t rb;
-    uint8_t storage[256];  // 256 bytes buffer
+    ring_buffer_t rx_rb;
+    uint8_t storage[256];
 } System_Ctx_t;
 
 static System_Ctx_t sys_ctx;
 static uart_handle_t h_uart;
+static bool oled_is_inverted = false;
 
-// ==========================================
-// Callback 實作 (Day 8 核心)
-// ==========================================
-//  當 UART 收到資料 (硬體 ISR) -> 呼叫這裡
+// UART RX ISR (監聽硬體 GP1)
 void My_UART_Callback(void* ctx, uart_event_t event, void* data)
 {
     System_Ctx_t* sys = (System_Ctx_t*)ctx;
-
     if (event == UART_EVENT_RX_COMPLETE)
     {
-        //  修正：從 void* data 解引用取得正確數值並存入 Ring Buffer
-        uint8_t actual_data = *(uint8_t*)data;
-        rb_push(&sys->rb, actual_data);
+        uint8_t rx_byte = *(uint8_t*)data;
+        rb_push(&sys->rx_rb, rx_byte);
     }
 }
 
-// ==========================================
-// 主程式
-// ==========================================
+// 統一的指令處理函式
+void Process_Command(SystemCmd_t cmd, uint32_t now)
+{
+    if (cmd == CMD_OLED_INVERT)
+    {
+        oled_is_inverted = true;
+        printf("\n[APP] ✅ Command Executed: OLED INVERT\n");
+    }
+    else if (cmd == CMD_OLED_NORMAL)
+    {
+        oled_is_inverted = false;
+        printf("\n[APP] ✅ Command Executed: OLED NORMAL\n");
+    }
+    else if (cmd == CMD_SYSTEM_PING)
+    {
+        printf("\n[APP] 🚀 System Alive! Uptime: %u ms\n", now);
+    }
+}
+
 int main()
 {
-    // 1. 初始化 stdio (為了可以用 printf debug)
     stdio_init_all();
-    sleep_ms(2000);  // 等待 USB 連線穩定
-    printf("=== Day 8 Loopback Test Start ===\n");
+    sleep_ms(3000);  // 多等一下，讓你來得及開 Serial Monitor
+    printf("\n\n==========================================\n");
+    printf("🚀 Project Sentinel: Ultimate Integration\n");
+    printf("👉 Type 'INV' or 'NORM' or 'PING' below:\n");
+    printf("==========================================\n");
 
-    //  2. 初始化 Ring Buffer (修正：改用 rb_init)
-    rb_init(&sys_ctx.rb, sys_ctx.storage, 256);
-
-    // 3. 初始化 UART 並註冊 Callback
+    rb_init(&sys_ctx.rx_rb, sys_ctx.storage, 256);
     HAL_UART_Init(&h_uart, 0);
     HAL_UART_RegisterCallback(&h_uart, My_UART_Callback, &sys_ctx);
 
-    //  4. 設定 LED (用來當心跳燈)
+    hal_i2c_init();
+    ssd1306_init();
+
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
 
-    // 5. 主迴圈 (Loopback Verification)
-    int send_counter = 0;
+    uint32_t last_oled_time = 0;
+    uint32_t last_heartbeat_time = 0;
+    int oled_x_pos = 0;
+
     while (true)
     {
-        // --- 傳送端 (TX) ---
-        char tx_msg[32];
-        sprintf(tx_msg, "Ping %d\n", send_counter++);
+        uint32_t now = to_ms_since_boot(get_absolute_time());
 
-        printf("[TX] Sending: %s", tx_msg);
-        //  注意：確保 hal_uart.h 內已宣告 HAL_UART_Send
-        HAL_UART_Send(&h_uart, (uint8_t*)tx_msg, (uint16_t)strlen(tx_msg));
-
-        // --- 接收端 (RX) 檢查 ---
-        sleep_ms(100);  // 等待硬體傳輸與 ISR 處理
-
-        //  修正：改用 rb_is_empty 檢查
-        if (!rb_is_empty(&sys_ctx.rb))
+        // ---------------------------------------------------
+        // Task 1: 系統心跳 (每秒印一個點，證明沒當機)
+        // ---------------------------------------------------
+        if (now - last_heartbeat_time >= 1000)
         {
-            printf("[RX] Received: ");
-            uint8_t rx_byte;
-            //  修正：改用 rb_pop 取出資料
-            while (rb_pop(&sys_ctx.rb, &rx_byte))
+            last_heartbeat_time = now;
+            printf(".");  // 輸出心跳
+        }
+
+        // ---------------------------------------------------
+        // Task 2: 監聽 USB 鍵盤輸入 (USB CDC Bridge)
+        // ---------------------------------------------------
+        int usb_char = getchar_timeout_us(0);  // 非阻塞讀取 USB 鍵盤
+        if (usb_char != PICO_ERROR_TIMEOUT)
+        {
+            // 💡 照妖鏡：印出你按下的每一個按鍵的 ASCII Hex 碼
+            printf("[Key: %c (0x%02X)]", usb_char, usb_char);
+
+            SystemCmd_t cmd = Sentinel_ParseChar((char)usb_char);
+            Process_Command(cmd, now);
+        }
+
+        // ---------------------------------------------------
+        // Task 3: 監聽硬體 UART (Day 8 Ring Buffer)
+        // ---------------------------------------------------
+        uint8_t rx_byte;
+        if (rb_pop(&sys_ctx.rx_rb, &rx_byte))
+        {
+            SystemCmd_t cmd = Sentinel_ParseChar((char)rx_byte);
+            Process_Command(cmd, now);
+        }
+
+        // ---------------------------------------------------
+        // Task 4: OLED 動畫與防護
+        // ---------------------------------------------------
+        if (now - last_oled_time >= 20)
+        {
+            last_oled_time = now;
+            ssd1306_clear();
+
+            uint8_t pattern = oled_is_inverted ? 0xFF : 0x00;
+            if (oled_is_inverted) ssd1306_fill(pattern);
+
+            for (int y = 0; y < 32; y++)
             {
-                putchar(rx_byte);
+                ssd1306_draw_pixel(oled_x_pos, y, !oled_is_inverted);
             }
-
-            // 閃爍 LED
-            gpio_put(LED_PIN, 1);
-            sleep_ms(50);
-            gpio_put(LED_PIN, 0);
+            ssd1306_show();
+            oled_x_pos = (oled_x_pos + 1) % 128;
         }
-        else
-        {
-            printf("[RX] No Data! (Check wiring GP0 to GP1)\n");
-        }
-
-        sleep_ms(900);
     }
 }
